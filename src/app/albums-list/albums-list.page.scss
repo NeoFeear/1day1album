@@ -1,0 +1,20 @@
+#btnCreate {
+    margin: 20px 0 10px;
+}
+
+#cover {
+    width: 100%;
+    height: auto;
+    background-position: center center;
+    object-fit: cover;
+}
+
+ion-card-content {
+    height: auto;
+    display: grid;
+    align-items: center;
+
+    > ion-text {
+        font-weight: bold;
+    }
+}

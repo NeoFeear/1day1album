@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Home</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <h2 id="info"></h2>
+
+    <ion-grid *ngIf="album">
+        <ion-img [src]="album.cover" [alt]="album.title" [routerLink]="['/tabs/albums/', album.id]" id="cover"></ion-img>
+        
+        <h1>{{ album.title }}</h1>
+        <h2>{{ album.artist }}</h2>
+    </ion-grid>
+</ion-content>

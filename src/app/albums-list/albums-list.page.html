@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Récap</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-button routerLink="/tabs/albums/new" id="btnCreate"><ion-icon name="add-circle"></ion-icon>&nbsp;Ajouter</ion-button>
+
+    <ion-grid *ngFor="let album of albums">
+        <ion-card [routerLink]="['/tabs/albums/', album.id]">
+            <ion-img [src]="album.cover" [alt]="album.title" id="cover"></ion-img>
+            
+            <ion-card-content>
+                <ion-card-title>{{ album.title }}</ion-card-title>
+                <ion-text color="success">{{album.date}}</ion-text>
+            </ion-card-content>
+        </ion-card>
+    </ion-grid>
+</ion-content>

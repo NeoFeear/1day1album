@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/albums"></ion-back-button>
+        </ion-buttons>
+        <ion-title *ngIf="album">{{album.title}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- PRÉSENTATION -->
+    <div *ngIf="!modif">
+        <ion-grid *ngIf="album">
+            <ion-button (click)="setModif()" id="btnModif">
+                <ion-icon name="create-outline"></ion-icon>&nbsp;Modifier
+            </ion-button>
+
+            <ion-img [src]="album.cover" [alt]="album.title" id="cover"></ion-img>
+
+            <hr>
+
+            <div class="ion-text-start ion-margin-start">
+                <h1>{{ album.title }}</h1>
+                <h4>{{ album.artist }}</h4>
+                <p>Album ● {{ album.releaseDate | date: 'dd/MM/yyyy' }}</p>
+            </div>
+        </ion-grid>
+    </div>
+
+    <!-- MODIFICATION -->
+    <div *ngIf="modif && album">
+        <ion-item lines="full">
+            <ion-label position="floating">Titre</ion-label>
+            <ion-input type="text" [(ngModel)]="album.title"></ion-input>
+          </ion-item>
+        
+          <ion-item lines="full">
+            <ion-label position="floating">Artiste</ion-label>
+            <ion-input type="text" [(ngModel)]="album.artist"></ion-input>
+          </ion-item>
+        
+          <ion-item lines="full">
+            <ion-label position="floating">Date de sortie</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" locale="fr-FR" [(ngModel)]="album.releaseDate"></ion-datetime>
+          </ion-item>
+        
+          <ion-item lines="full">
+            <ion-label position="floating">Pochette</ion-label>
+            <ion-input type="url" [(ngModel)]="album.cover"></ion-input>
+          </ion-item>
+
+        <p class="text-center">
+            <ion-button (click)="onModif()">Modifier</ion-button>
+        </p>
+    </div>
+</ion-content>
+
+<ion-footer collapse="fade">
+    <ion-toolbar>
+        <ion-title color="danger" (click)="onDelete(album.id)">Supprimer</ion-title>
+    </ion-toolbar>
+</ion-footer>
