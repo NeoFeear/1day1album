@@ -71,4 +71,14 @@ export class AlbumPage implements OnInit {
     }
   }
 
+  openSpotify(artist: string, title: string) {
+    const url = 'https://open.spotify.com/search/' + artist + " " + title + "/albums";
+    window.open(url, '_blank');
+  }
+
+  openDeezer(artist: string, title: string) {
+    const url = 'https://www.deezer.com/search/' + artist + " " + title + "/album";
+    window.open(url, '_blank');
+  }
+
 }
