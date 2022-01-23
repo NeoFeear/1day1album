@@ -25,12 +25,12 @@
                 <p>Album ● {{ album.releaseDate | date: 'dd/MM/yyyy' }}</p>
             </div>
 
-            <ion-button (click)="openSpotify(album.artist, album.title)" color="success" shape="round" id="btnSpotify">
-                <i class="fab fa-spotify"></i>&nbsp;Ouvrir dans Spotify
-            </ion-button>
-
             <ion-button (click)="openDeezer(album.artist, album.title)" color="warning" shape="round" id="btnDeezer">
-                <i class="fab fa-deezer"></i>&nbsp;Ouvrir dans Deezer
+                <i class="fab fa-deezer"></i>&nbsp;Deezer
+            </ion-button>
+            &nbsp;
+            <ion-button (click)="openSpotify(album.artist, album.title)" color="success" shape="round" id="btnSpotify">
+                <i class="fab fa-spotify"></i>&nbsp;Spotify
             </ion-button>
         </ion-grid>
     </div>
