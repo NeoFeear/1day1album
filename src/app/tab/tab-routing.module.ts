@@ -9,12 +9,16 @@ const routes: Routes = [
     component: TabPage,
     children: [
       {
-        path: 'albums',
-        loadChildren: () => import('../albums-list/albums-list.module').then( m => m.AlbumsListPageModule)
-      },
-      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
+      },
+      {
+        path: 'photos',
+        loadChildren: () => import('../photos/photos.module').then( m => m.PhotosPageModule)
+      },
+      {
+        path: 'albums',
+        loadChildren: () => import('../albums-list/albums-list.module').then( m => m.AlbumsListPageModule)
       },
       {
         path: 'about',
